@@ -10,7 +10,7 @@ body {
     font-family: 'Poppins', sans-serif;
     color: #e0e0e0;
     line-height: 1.6;
-    background-color: #0a192f; /* Dark blue background */
+    background-color: #0a192f;
     overflow-x: hidden;
 }
 
@@ -31,7 +31,7 @@ h2 {
     margin-bottom: 50px;
     position: relative;
     display: inline-block;
-    color: #ccd6f6; /* Light blue text for headings */
+    color: #ccd6f6;
 }
 
 h2::after {
@@ -41,7 +41,7 @@ h2::after {
     left: 0;
     width: 60px;
     height: 4px;
-    background: #64ffda; /* Teal accent color */
+    background: #64ffda;
     border-radius: 2px;
 }
 
@@ -100,7 +100,7 @@ h2::after {
 .navbar {
     background-color: rgba(10, 25, 47, 0.9);
     color: #ccd6f6;
-    padding: 15px 0; /* Reduced padding to make navbar more compact */
+    padding: 15px 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -108,27 +108,27 @@ h2::after {
     z-index: 1000;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    height: 70px; /* Added fixed height */
+    height: 70px;
     display: flex;
     align-items: center;
 }
 
 .navbar.scrolled {
-    padding: 10px 0; /* Reduced padding when scrolled */
+    padding: 10px 0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    height: 60px; /* Slightly smaller when scrolled */
+    height: 60px;
 }
 
 .navbar .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%; /* Ensure full width */
-    height: 100%; /* Take full height of navbar */
+    width: 100%;
+    height: 100%;
 }
 
 .logo {
-    font-size: 1.3rem; /* Slightly smaller logo */
+    font-size: 1.3rem;
     font-weight: 600;
     color: #64ffda;
     text-decoration: none;
@@ -142,18 +142,18 @@ h2::after {
 .navbar nav {
     display: flex;
     align-items: center;
-    height: 100%; /* Take full height of navbar */
+    height: 100%;
 }
 
 .navbar nav a {
     color: #ccd6f6;
     text-decoration: none;
-    margin: 0 12px; /* Slightly reduced margin */
+    margin: 0 12px;
     font-weight: 400;
     transition: all 0.3s ease;
     position: relative;
     padding: 5px 0;
-    font-size: 0.95rem; /* Slightly smaller font */
+    font-size: 0.95rem;
 }
 
 .navbar nav a::after {
@@ -182,16 +182,10 @@ h2::after {
     color: #ccd6f6;
 }
 
-/* Add this to ensure content starts below navbar */
 body {
-    padding-top: 70px; /* Equal to navbar height */
+    padding-top: 70px;
 }
 
-/* Adjust hero section padding */
-.hero {
-    padding-top: 30px; /* Reduced from 100px since body has padding */
-    height: calc(100vh - 70px); /* Account for navbar height */
-}
 /* Hero Section */
 .hero {
     background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9));
@@ -273,6 +267,8 @@ body {
 
 .hero-buttons {
     margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
 }
 
 .social-links {
@@ -324,24 +320,6 @@ body {
     box-shadow: 
         0 0 0 8px rgba(100, 255, 218, 0.3),
         0 25px 60px rgba(0, 0, 0, 0.4);
-}
-
-/* Optional: Add a subtle floating animation */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-.hero-image::after {
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(100, 255, 218, 0.1), transparent);
-    z-index: 0;
-    animation: float 6s ease-in-out infinite;
 }
 
 .tech-icons {
@@ -521,14 +499,7 @@ body {
     color: #64ffda;
 }
 
-.skill-category li span {
-    position: absolute;
-    right: 0;
-    font-weight: 500;
-    color: #ccd6f6;
-}
-
-/* Projects Section */
+/* Projects Section - Improved Version */
 .projects {
     background-color: #0a192f;
 }
@@ -557,6 +528,18 @@ body {
 .project-image {
     height: 200px;
     overflow: hidden;
+    position: relative;
+}
+
+.project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 70%, #112240);
+    z-index: 1;
 }
 
 .project-image img {
@@ -566,8 +549,22 @@ body {
     transition: all 0.5s ease;
 }
 
+/* Desktop-specific project image styling */
+@media (min-width: 992px) {
+    .project-image {
+        height: 220px;
+    }
+    
+    .project-image img {
+        object-fit: contain;
+        object-position: top;
+        background: #0a192f;
+        padding: 15px;
+    }
+}
+
 .project-card:hover .project-image img {
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .project-info {
@@ -580,12 +577,15 @@ body {
 .project-info h3 {
     margin-bottom: 10px;
     color: #ccd6f6;
+    font-size: 1.3rem;
 }
 
 .project-info p {
     color: #8892b0;
     margin-bottom: 15px;
     flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
 .project-tech {
@@ -598,7 +598,7 @@ body {
 .project-tech span {
     background: #233554;
     color: #64ffda;
-    padding: 5px 10px;
+    padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
 }
@@ -606,6 +606,220 @@ body {
 .project-links {
     display: flex;
     gap: 10px;
+}
+
+/* Certificates Section */
+.certificates {
+    background-color: #0a192f;
+    position: relative;
+    overflow: hidden;
+}
+
+.certificates-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.certificate-card {
+    background: #112240;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(100, 255, 218, 0.1);
+}
+
+.certificate-img-container {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.certificate-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.certificate-card:hover .certificate-img-container img {
+    transform: scale(1.05);
+}
+
+.certificate-info {
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(to top, #112240 70%, transparent);
+}
+
+.certificate-info h3 {
+    color: #ccd6f6;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.certificate-info p {
+    color: #8892b0;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.certificate-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.certificate-card:hover .certificate-overlay {
+    opacity: 1;
+}
+
+.view-certificate-btn {
+    background: transparent;
+    color: #64ffda;
+    border: 2px solid #64ffda;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-certificate-btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Certificate Modal */
+.certificate-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.certificate-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    background: #112240;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    display: block;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(16, 36, 70, 0.8);
+    color: #64ffda;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: rotate(90deg);
+}
+
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.modal-prev,
+.modal-next {
+    background: rgba(16, 36, 70, 0.8);
+    color: #64ffda;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-prev:hover,
+.modal-next:hover {
+    background: rgba(100, 255, 218, 0.2);
+    transform: scale(1.1);
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
+.certificate-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(16, 36, 70, 0.8);
+    color: #ccd6f6;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
 }
 
 /* Education Section */
@@ -622,15 +836,6 @@ body {
     border: 2px solid #64ffda;
     padding: 5px;
     background: #112240;
-}
-
-.timeline-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background: #112240;
-    color: #ccd6f6;
 }
 
 .timeline {
@@ -691,11 +896,6 @@ body {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
-
-/* .timeline-item:hover .timeline-content {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
-} */
 
 .timeline-content h3 {
     margin-bottom: 10px;
@@ -886,6 +1086,12 @@ body {
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+    .hero h2 {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 992px) {
     .hero .container {
         flex-direction: column;
@@ -895,10 +1101,16 @@ body {
     .hero-content {
         padding-right: 0;
         margin-bottom: 50px;
+        text-align: center;
     }
 
     .hero-buttons {
         justify-content: center;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .about-content {
@@ -907,6 +1119,7 @@ body {
 
     .about-image {
         margin-top: 30px;
+        order: -1;
     }
 
     .timeline::before {
@@ -935,16 +1148,17 @@ body {
 @media (max-width: 768px) {
     .navbar nav {
         position: fixed;
-        top: 80px;
+        top: 70px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 80px);
-        background: rgba(10, 25, 47, 0.95);
+        height: calc(100vh - 70px);
+        background: rgba(10, 25, 47, 0.98);
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-top: 30px;
         transition: all 0.5s ease;
-        backdrop-filter: blur(10px);
+        z-index: 999;
     }
 
     .navbar nav.active {
@@ -954,10 +1168,18 @@ body {
     .navbar nav a {
         margin: 15px 0;
         font-size: 1.2rem;
+        padding: 10px 20px;
     }
 
     .hamburger {
         display: block;
+        z-index: 1000;
+    }
+
+    .hero {
+        padding-top: 100px;
+        height: auto;
+        min-height: 100vh;
     }
 
     .hero h2 {
@@ -977,8 +1199,46 @@ body {
         margin-left: 0;
     }
 
+    .hero-image img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .tech-icons {
+        gap: 20px;
+    }
+
+    .tech-icons i {
+        font-size: 2rem;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+    
+    .project-image img {
+        object-fit: cover;
+    }
+
+    .project-links {
+        flex-direction: column;
+    }
+
+    .project-links .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .certificates-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        flex-direction: column;
     }
 }
 
@@ -997,11 +1257,34 @@ body {
     }
 
     .hero-image img {
-        max-width: 250px;
+        width: 180px;
+        height: 180px;
     }
 
     .experience {
         flex-direction: column;
-        gap: 15px;
+    }
+
+    .skill-category {
+        min-width: 100%;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 10px 12px;
+    }
+
+    .certificate-img-container {
+        height: 180px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+    }
+
+    .close-modal {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
     }
 }
