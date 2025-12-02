@@ -114,50 +114,78 @@
     </section>
 
     <section id="skills" class="skills-section">
-      <div class="skills-card">
-        <h2 class="skills-title">Skills</h2>
+    <div class="skills-card">
+      <h1 class="skills-title">Skills</h1>
 
-        <!-- Filter BUTTONS -->
-        <div class="skill-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="frontend">Frontend</button>
-          <button class="filter-btn" data-filter="backend">Backend</button>
-          <button class="filter-btn" data-filter="devops">DevOps</button>
-          <button class="filter-btn" data-filter="database">Database</button>
-        </div>
+      <!-- Filter Buttons -->
+      <div class="skill-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="frontend">Frontend</button>
+        <button class="filter-btn" data-filter="backend">Backend</button>
+        <button class="filter-btn" data-filter="devops">DevOps</button>
+        <button class="filter-btn" data-filter="database">Database</button>
+      </div>
 
-        <div class="skills-icons">
+      <!-- Moving Icons -->
+      <div class="skills-marquee">
+        <div class="skills-track">
+          <!-- ===== SET 1 ===== -->
           <!-- FRONTEND -->
-          <i class="fab fa-html5 skill-icon frontend"></i>
-          <i class="fab fa-css3-alt skill-icon frontend"></i>
-          <i class="fab fa-js skill-icon frontend"></i>
-          <i class="fab fa-react skill-icon frontend"></i>
-          <i class="fas fa-code skill-icon frontend" title="TypeScript">TS</i>
+          <div class="skill-item frontend all"><i class="fab fa-html5" title="HTML"></i></div>
+          <div class="skill-item frontend all"><i class="fab fa-css3-alt" title="CSS"></i></div>
+          <div class="skill-item frontend all"><i class="fab fa-js" title="JavaScript"></i></div>
+          <div class="skill-item frontend all"><i class="fab fa-react" title="React"></i></div>
+          <div class="skill-item frontend all" title="TypeScript"><span class="ts-icon">TS</span></div>
 
           <!-- BACKEND -->
-          <i class="fab fa-java skill-icon backend"></i>
-          <i class="fas fa-leaf skill-icon backend" title="Spring Boot"></i>
-          <i class="fas fa-server skill-icon backend" title="REST APIs"></i>
+          <div class="skill-item backend all"><i class="fab fa-java" title="Java"></i></div>
+          <div class="skill-item backend all"><i class="fas fa-leaf" title="Spring Boot"></i></div>
+          <div class="skill-item backend all"><i class="fas fa-server" title="REST APIs"></i></div>
 
           <!-- DEVOPS -->
-          <i class="fab fa-aws skill-icon devops"></i>
-          <i class="fab fa-microsoft skill-icon devops" title="Azure"></i>
-          <i class="fab fa-docker skill-icon devops"></i>
-          <i class="fab fa-git-alt skill-icon devops"></i>
-          <i class="fab fa-linux skill-icon devops"></i>
-          <i class="fas fa-gears skill-icon devops" title="Jenkins"></i>
-          <i class="fas fa-vial skill-icon devops" title="JUnit"></i>
+          <div class="skill-item devops all"><i class="fab fa-aws" title="AWS"></i></div>
+          <div class="skill-item devops all"><i class="fab fa-microsoft" title="Azure"></i></div>
+          <div class="skill-item devops all"><i class="fab fa-docker" title="Docker"></i></div>
+          <div class="skill-item devops all"><i class="fab fa-git-alt" title="Git"></i></div>
+          <div class="skill-item devops all"><i class="fab fa-linux" title="Linux"></i></div>
+          <div class="skill-item devops all"><i class="fas fa-gears" title="Jenkins"></i></div>
+          <div class="skill-item devops all"><i class="fas fa-vial" title="JUnit"></i></div>
 
           <!-- DATABASE -->
-          <i class="fas fa-database skill-icon database" title="SQL"></i>
-          <i class="fas fa-leaf skill-icon database" title="MongoDB"></i>
-        </div>
+          <div class="skill-item database all"><i class="fas fa-database" title="SQL"></i></div>
+          <div class="skill-item database all"><i class="fas fa-database mongo-icon" title="MongoDB"></i></div>
 
-        <div class="skills-bar">
-          <div class="skills-bar-fill"></div>
+          <!-- ===== SET 2 (DUPLICATE FOR INFINITE LOOP) ===== -->
+          <!-- Mark all as .duplicate -->
+          <!-- FRONTEND -->
+          <div class="skill-item frontend all duplicate"><i class="fab fa-html5" title="HTML"></i></div>
+          <div class="skill-item frontend all duplicate"><i class="fab fa-css3-alt" title="CSS"></i></div>
+          <div class="skill-item frontend all duplicate"><i class="fab fa-js" title="JavaScript"></i></div>
+          <div class="skill-item frontend all duplicate"><i class="fab fa-react" title="React"></i></div>
+          <div class="skill-item frontend all duplicate" title="TypeScript"><span class="ts-icon">TS</span></div>
+
+          <!-- BACKEND -->
+          <div class="skill-item backend all duplicate"><i class="fab fa-java" title="Java"></i></div>
+          <div class="skill-item backend all duplicate"><i class="fas fa-leaf" title="Spring Boot"></i></div>
+          <div class="skill-item backend all duplicate"><i class="fas fa-server" title="REST APIs"></i></div>
+
+          <!-- DEVOPS -->
+          <div class="skill-item devops all duplicate"><i class="fab fa-aws" title="AWS"></i></div>
+          <div class="skill-item devops all duplicate"><i class="fab fa-microsoft" title="Azure"></i></div>
+          <div class="skill-item devops all duplicate"><i class="fab fa-docker" title="Docker"></i></div>
+          <div class="skill-item devops all duplicate"><i class="fab fa-git-alt" title="Git"></i></div>
+          <div class="skill-item devops all duplicate"><i class="fab fa-linux" title="Linux"></i></div>
+          <div class="skill-item devops all duplicate"><i class="fas fa-gears" title="Jenkins"></i></div>
+          <div class="skill-item devops all duplicate"><i class="fas fa-vial" title="JUnit"></i></div>
+
+          <!-- DATABASE -->
+          <div class="skill-item database all duplicate"><i class="fas fa-database" title="SQL"></i></div>
+          <div class="skill-item database all duplicate"><i class="fas fa-database mongo-icon" title="MongoDB"></i></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
 
     <section id="projects" class="projects">
       <div class="container">
@@ -408,28 +436,8 @@
       <i class="fas fa-arrow-up"></i>
     </div>
 
-    <script src="first.js"></script>
-    <script>
-const buttons = document.querySelectorAll(".filter-btn");
-const icons = document.querySelectorAll(".skill-icon");
-
-buttons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    buttons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    const filter = btn.dataset.filter;
-
-    icons.forEach(icon => {
-      if (filter === "all") {
-        icon.classList.remove("hide");
-      } else {
-        icon.classList.toggle("hide", !icon.classList.contains(filter));
-      }
-    });
-  });
-});
-</script>
+    <script src="./js/first.js"></script>
+    <script src="./js/skills.js"></script>
   </body>
   
 </html>

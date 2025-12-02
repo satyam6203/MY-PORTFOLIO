@@ -408,13 +408,14 @@ body {
 .about-image img:hover {
     transform: scale(1.05);
 }
-/* skill */
-/* GLOBAL BACKGROUND */
+/* ===== GLOBAL ===== */
 body {
   background: #0a192f;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* SKILLS CONTAINER */
+/* ===== Skills Section ===== */
 .skills-section {
   padding: 3rem 1rem;
   background: #0a192f;
@@ -427,8 +428,8 @@ body {
   max-width: 1100px;
   padding: 2rem;
   border-radius: 20px;
-  background: #112240;   /* card color */
-  color: white;
+  background: #112240;
+  color: #ffffff;
   box-shadow: 0 0 30px rgba(0, 0, 0, .4);
 }
 
@@ -438,22 +439,22 @@ body {
   margin-bottom: 1.3rem;
 }
 
-/* FILTER BUTTONS */
+/* ===== Filter Buttons ===== */
 .skill-filters {
   display: flex;
   gap: 12px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .filter-btn {
-  padding: 12px 18px;
+  padding: 10px 18px;
   background: #233554;
   border: none;
   font-size: 0.95rem;
   color: white;
   min-width: 110px;
   text-align: center;
-  border-radius: 999px;   /* pill shape */
+  border-radius: 999px;
   cursor: pointer;
   transition: 0.25s;
   white-space: nowrap;
@@ -465,99 +466,117 @@ body {
   color: #0a192f;
 }
 
-/* ICON GRID */
-.skills-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  font-size: 3.8rem;         /* BIGGER ICONS HERE */
-  margin-bottom: 2rem;
-}
-
-/* ICON COLORS */
-.fa-html5 { color: #f16529; }
-.fa-css3-alt { color: #2965f1; }
-.fa-js { color: #f0db4f; }
-.fa-react { color: #61dafb; }
-.fa-code { color: #2f9fff; }
-
-.fa-java { color: #007396; }
-.fa-leaf { color: #6db33f; }
-.fa-server { color: #f39c12; }
-
-.fa-docker { color: #0db7ed; }
-.fa-git-alt { color: #f34f29; }
-.fa-linux { color: #ffdd54; }
-.fa-aws { color: #ff9900; }
-.fa-microsoft { color: #00a4ef; }
-.fa-gears { color: #dfdfdf; }
-.fa-vial { color: #32ff7e; }
-
-.fa-database { color: #ffa500; }
-
-/* HIDE WHEN FILTERING */
-.skill-icon {
-  opacity: 1;
-  transition: opacity 0.25s ease, transform 0.2s ease;
-}
-
-/* ICON HOVER EFFECT GLOW */
-.skill-icon:hover {
-  transform: scale(1.18);
-  filter: drop-shadow(0px 0px 12px rgba(100, 255, 218, 0.7));
-}
-
-/* WHEN HIDDEN */
-.skill-icon.hide {
-  opacity: .08;
-}
-
-/* BOTTOM BAR */
-.skills-bar {
+/* ===== Marquee / Scrolling Icons ===== */
+.skills-marquee {
   width: 100%;
-  height: 4px;
-  border-radius: 999px;
-  background: #233554;
   overflow: hidden;
+  position: relative;
 }
 
-.skills-bar-fill {
-  width: 45%;
-  height: 100%;
-  background: #64ffda;
+.skills-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.2rem;
+  animation: scrollInfinite 12s linear infinite; /* speed here */
+  will-change: transform;
+  padding: 8px 0;
 }
-.skill-filters {
+
+/* When not "All" → static layout */
+.skills-track.static {
+  animation: none;
+  transform: translateX(0);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Continuous scrolling animation */
+@keyframes scrollInfinite {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== Icon style ===== */
+.skill-item {
   display: flex;
-  gap: 12px;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  transition: transform 0.2s ease, filter 0.2s ease, opacity 0.2s ease;
 }
-@media (max-width: 768px) {
 
-  /* make buttons scrollable horizontally */
+/* TypeScript custom icon */
+.ts-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  background: #3178c6;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Colors */
+.skill-item i.fa-html5      { color: #f16529; }
+.skill-item i.fa-css3-alt   { color: #2965f1; }
+.skill-item i.fa-js         { color: #f0db4f; }
+.skill-item i.fa-react      { color: #61dafb; }
+
+.skill-item i.fa-java       { color: #007396; }
+.skill-item i.fa-leaf       { color: #6db33f; }
+.skill-item i.fa-server     { color: #f39c12; }
+
+.skill-item i.fa-aws        { color: #ff9900; }
+.skill-item i.fa-microsoft  { color: #00a4ef; }
+.skill-item i.fa-docker     { color: #0db7ed; }
+.skill-item i.fa-git-alt    { color: #f34f29; }
+.skill-item i.fa-linux      { color: #ffdd54; }
+.skill-item i.fa-gears      { color: #dfdfdf; }
+.skill-item i.fa-vial       { color: #32ff7e; }
+
+.skill-item i.fa-database       { color: #ffa500; }
+.skill-item i.mongo-icon        { color: #00d48a; }
+
+/* Hover glowing effect */
+.skill-item:hover {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 12px rgba(100, 255, 218, 0.7));
+}
+
+/* Hidden when filtered */
+.hidden {
+  display: none !important;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .skills-card {
+    padding: 1.4rem;
+  }
+
   .skill-filters {
-    display: flex;
-    gap: 12px;
     overflow-x: auto;
-    padding-bottom: 6px;
-    scrollbar-width: none;   /* hide scrollbar */
+    scrollbar-width: none;
   }
 
   .skill-filters::-webkit-scrollbar {
     display: none;
   }
 
-  /* allow icons to scale nicely */
-  .skills-icons {
-    font-size: 3.2rem;
-    gap: 1.6rem;
-    justify-content: center;
+  .skill-item {
+    font-size: 3rem;
   }
 
-  /* make the skill card padding tighter */
-  .skills-card {
-    padding: 1.4rem;
+  .ts-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.3rem;
   }
 }
+
 
 
 /* Projects Section */
